@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load data
 input_file_path = "/Users/omrijan/Downloads/data_scientist_home_assignment.csv"
+qini_save_path = "/Users/omrijan/Downloads/qini.png"
 df = pd.read_csv(input_file_path)
 
 # Step 1: Convert EffectiveDate to week number (1–52)
@@ -168,7 +169,7 @@ def build_qini_table_v2(df, score_col='ranking_score', treatment_col='OutReach',
 qini_df = build_qini_table_v2(test_df, n_bins=500, max_bin=150)
 
 # Function to plot the Qini table and save the figure (without showing it)
-def plot_qini_table(qini_df, output_file='qini_plot.png'):
+def plot_qini_table(qini_df, output_file=qini_save_path):
     plt.figure(figsize=(8, 6))
     plt.plot(qini_df['percent_population'], qini_df['cum_uplift'], label='Model Qini')
     plt.plot(qini_df['percent_population'], qini_df['cum_random_uplift'], linestyle='--', label='Random Baseline')
@@ -181,5 +182,5 @@ def plot_qini_table(qini_df, output_file='qini_plot.png'):
     plt.savefig(output_file)
     plt.close()
 
-plot_qini_table(qini_df, output_file="/Users/omrijan/Downloads/qini.png")
+plot_qini_table(qini_df)
 print("Qini plot saved.")

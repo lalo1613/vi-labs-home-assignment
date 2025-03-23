@@ -14,10 +14,10 @@ df = pd.read_csv(input_file_path)
 ####
 # monoticity test
 ####
-df["OutReach"].mean()
-df.groupby("ChurnIn30Days")["OutReach"].value_counts(normalize=True)
-df.groupby("OutReach")["ChurnIn30Days"].value_counts(normalize=True)
-df.groupby("OutReachOutcome", dropna=False)["ChurnIn30Days"].value_counts(normalize=True)
+# df["OutReach"].mean()
+# df.groupby("ChurnIn30Days")["OutReach"].value_counts(normalize=True)
+# df.groupby("OutReach")["ChurnIn30Days"].value_counts(normalize=True)
+print(df.groupby("OutReachOutcome", dropna=False)["ChurnIn30Days"].value_counts(normalize=True))
 
 ####
 # PPS test
