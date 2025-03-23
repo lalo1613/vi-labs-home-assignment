@@ -171,7 +171,7 @@ qini_df = build_qini_table_v2(test_df, n_bins=500, max_bin=150)
 def plot_qini_table(qini_df, output_file='qini_plot.png'):
     plt.figure(figsize=(8, 6))
     plt.plot(qini_df['percent_population'], qini_df['cum_uplift'], label='Model Qini')
-    plt.plot(qini_df['percent_population'], qini_df['random_uplift'], linestyle='--', label='Random Baseline')
+    plt.plot(qini_df['percent_population'], qini_df['cum_random_uplift'], linestyle='--', label='Random Baseline')
     plt.xlabel('Percent Population')
     plt.ylabel('Cumulative Uplift')
     plt.title('Qini Curve')
